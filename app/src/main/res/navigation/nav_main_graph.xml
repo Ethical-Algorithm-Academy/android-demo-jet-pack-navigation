@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/fragmentHome">
+    <!-- Main Screens -->
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentHome"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentNotifications"
+            app:destination="@id/fragmentNotifications" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentNotifications"
+        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentNotifications"
+        tools:layout="@layout/fragment_notification">
+        <action
+            android:id="@+id/action_fragmentNotifications_to_fragmentMenu"
+            app:destination="@id/fragmentMenu"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentMenu"
+        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentMenu"
+        tools:layout="@layout/fragment_menu">
+    </fragment>
+
+    <!-- Other Modules Nav Graphs -->
+    <fragment
+        android:id="@+id/fragmentA"
+        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentA"
+        android:label="@string/fragment_a"
+        tools:layout="@layout/fragment_a">
+        <!--  TODO: Deeplink -->
+        <!--  Note: Example of xml Segue -->
+        <argument
+            android:name="selectedCar"
+            app:argType=".models.Car"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_fragmentA_to_fragmentB"
+            app:destination="@id/fragmentB">
+            <argument
+                android:name="selectedCar"
+                app:argType=".models.Car"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentB"
+        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentB"
+        android:label="@string/fragment_b"
+        tools:layout="@layout/fragment_b">
+        <argument
+            android:name="selectedCar"
+            app:argType=".models.Car"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_fragmentB_to_fragmentC"
+            app:destination="@id/fragmentC">
+            <argument
+                android:name="selectedCar"
+                app:argType=".models.Car"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentC"
+        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentC"
+        android:label="@string/fragment_c"
+        tools:layout="@layout/fragment_c">
+        <argument
+            android:name="selectedCar"
+            app:argType=".models.Car"
+            app:nullable="true" />
+    </fragment>
+
+    <!-- Include Graph looks like I can only Access to Entry point with help of segue-->
+
+    <!-- TODO: Check with Dialogs -->
+    <!--    <dialog-->
+    <!--        android:id="@+id/fragmentADialog"-->
+    <!--        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentA"-->
+    <!--        -->
+    <!--        />-->
+
+    <!--  TODO: Sheets -->
+
+    <!--  TODO: Permissions -->
+
+</navigation>
