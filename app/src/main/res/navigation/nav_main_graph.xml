@@ -8,6 +8,7 @@
     <fragment
         android:id="@+id/fragmentHome"
         android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentHome"
+        android:label="@string/fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_fragmentHome_to_fragmentNotifications"
@@ -17,6 +18,7 @@
     <fragment
         android:id="@+id/fragmentNotifications"
         android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentNotifications"
+        android:label="@string/fragment_notifications"
         tools:layout="@layout/fragment_notification">
         <action
             android:id="@+id/action_fragmentNotifications_to_fragmentMenu"
@@ -26,8 +28,8 @@
     <fragment
         android:id="@+id/fragmentMenu"
         android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentMenu"
-        tools:layout="@layout/fragment_menu">
-    </fragment>
+        android:label="@string/fragment_menu"
+        tools:layout="@layout/fragment_menu" />
 
     <!-- Other Modules Nav Graphs -->
     <fragment
