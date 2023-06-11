@@ -1,24 +1,25 @@
-package com.beatstars.testingjetpacknavigation.ui.main
+package eu.jobernas.jetpacknavigation.ui.main.menu
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.beatstars.testingjetpacknavigation.R
+import eu.jobernas.jetpacknavigation.databinding.FragmentMenuBinding
 
-class FragmentMenu : Fragment(), View.OnClickListener {
+class MenuFragment : Fragment(), View.OnClickListener {
 
     companion object {
-        fun newInstance() = FragmentMenu()
+        fun newInstance() = MenuFragment()
     }
 
-    private lateinit var viewModelA: ViewModelA
+    private var binding: FragmentMenuBinding? = null
+    private lateinit var menuViewModel: MenuViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_menu, container, false)
+                              savedInstanceState: Bundle?): View? {
+        binding = FragmentMenuBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

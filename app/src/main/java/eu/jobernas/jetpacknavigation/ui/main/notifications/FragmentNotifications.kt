@@ -1,4 +1,4 @@
-package com.beatstars.testingjetpacknavigation.ui.main
+package eu.jobernas.jetpacknavigation.ui.main.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.beatstars.testingjetpacknavigation.R
-import com.beatstars.testingjetpacknavigation.helpers.NavigationConfig
-import com.beatstars.testingjetpacknavigation.models.Car
-import kotlinx.android.synthetic.main.fragment_notification.*
+import eu.jobernas.jetpacknavigation.R
+import eu.jobernas.jetpacknavigation.databinding.FragmentNotificationBinding
+import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
+import eu.jobernas.jetpacknavigation.models.Car
+import eu.jobernas.jetpacknavigation.ui.main.b.FragmentBArgs
 
 class FragmentNotifications : Fragment(), View.OnClickListener {
 
@@ -17,16 +18,17 @@ class FragmentNotifications : Fragment(), View.OnClickListener {
         fun newInstance() = FragmentNotifications()
     }
 
-    private lateinit var viewModelA: ViewModelA
+    private var binding: FragmentNotificationBinding? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_notification, container, false)
+                              savedInstanceState: Bundle?): View? {
+        binding = FragmentNotificationBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        actionA.setOnClickListener(this)
+        binding?.actionA?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {

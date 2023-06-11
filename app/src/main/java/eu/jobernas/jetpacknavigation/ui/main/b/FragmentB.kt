@@ -1,16 +1,17 @@
-package com.beatstars.testingjetpacknavigation.ui.main
+package eu.jobernas.jetpacknavigation.ui.main.b
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.beatstars.testingjetpacknavigation.R
-import com.beatstars.testingjetpacknavigation.helpers.NavigationConfig
-import com.beatstars.testingjetpacknavigation.models.Car
-import kotlinx.android.synthetic.main.fragment_b.*
+import eu.jobernas.jetpacknavigation.R
+import eu.jobernas.jetpacknavigation.databinding.FragmentBBinding
+import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
+import eu.jobernas.jetpacknavigation.models.Car
+import eu.jobernas.jetpacknavigation.ui.main.c.FragmentCArgs
 
 class FragmentB : Fragment(),
         View.OnClickListener {
@@ -34,10 +35,12 @@ class FragmentB : Fragment(),
 
     val args: FragmentBArgs by navArgs()
     var selectedCar: Car? = null
+    private var binding: FragmentBBinding? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_b, container, false)
+                              savedInstanceState: Bundle?): View? {
+        binding = FragmentBBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -47,8 +50,10 @@ class FragmentB : Fragment(),
 
         // New Way
         selectedCar = args.selectedCar
-        messageB.text = "${selectedCar?.title} + Number:${selectedCar?.number}"
-        actionC.setOnClickListener(this)
+        binding?.apply {
+            messageB.text = "${selectedCar?.title} + Number:${selectedCar?.number}"
+            actionC.setOnClickListener(this@FragmentB)
+        }
     }
 
     /**
@@ -58,7 +63,8 @@ class FragmentB : Fragment(),
         when (v?.id) {
             R.id.actionC -> {
                 selectedCar?.title = "Changed Name"
-                v.findNavController().navigate(R.id.fragmentC,
+                v.findNavController().navigate(
+                    R.id.fragmentC,
                         FragmentCArgs(selectedCar).toBundle(),
                         NavigationConfig.defaultNavigationBuilder.build())
             }

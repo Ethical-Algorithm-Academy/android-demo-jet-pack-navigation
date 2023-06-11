@@ -1,4 +1,4 @@
-package com.beatstars.testingjetpacknavigation
+package eu.jobernas.jetpacknavigation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,25 +6,24 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.main_activity.*
+import eu.jobernas.jetpacknavigation.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
-        setSupportActionBar(main_toolbar)
+        val binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.mainToolbar)
         val navHostFragment =
                 supportFragmentManager.findFragmentById(R.id.main_nav_fragment) as NavHostFragment
         val navController: NavController = navHostFragment.navController
 
         // Setup Bottom Navigation
-        bottom_navigation.apply {
-            setupWithNavController(navController)
+        binding.apply {
+            bottomNavigation.setupWithNavController(navController)
         }
 
         // Setup Action Bar Navigation

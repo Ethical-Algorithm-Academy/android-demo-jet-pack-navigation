@@ -7,7 +7,7 @@
     style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.FragmentA">
+    tools:context="eu.jobernas.jetpacknavigation.ui.main.a.FragmentA">
 
     <TextView
         android:id="@+id/messageH"
