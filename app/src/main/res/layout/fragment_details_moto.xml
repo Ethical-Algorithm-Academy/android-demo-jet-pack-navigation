@@ -3,25 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentBContainer"
+    android:id="@+id/moto_details_container"
     style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/messageB"
+        android:id="@+id/moto_details_model_text_view"
+        style="@style/textStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_b"
-        style="@style/textStyle"
-        app:layout_constraintBottom_toTopOf="@id/actionC"
+        android:text="@string/lb_screen_moto_details"
+        app:layout_constraintBottom_toTopOf="@id/moto_details_action_button"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/actionC"
+        android:id="@+id/moto_details_action_button"
         style="@style/buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,6 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/messageB" />
+        app:layout_constraintTop_toBottomOf="@id/moto_details_model_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

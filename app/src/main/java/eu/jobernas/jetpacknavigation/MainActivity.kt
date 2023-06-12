@@ -8,13 +8,13 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import eu.jobernas.jetpacknavigation.databinding.MainActivityBinding
+import eu.jobernas.jetpacknavigation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = MainActivityBinding.inflate(layoutInflater)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.mainToolbar)
         val navHostFragment =
@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
         // Setup Action Bar Navigation
         val appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf (
-                R.id.fragmentHome,
-                R.id.fragmentNotifications,
-                R.id.fragmentMenu,
-                R.id.fragmentSettings
+                R.id.home_screen,
+                R.id.notifications_screen,
+                R.id.menu_screen,
+                R.id.settings_screen
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -3,34 +3,34 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentAContainer"
+    android:id="@+id/notifications_container"
     style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.jobernas.jetpacknavigation.ui.main.a.FragmentA">
+    tools:context="eu.jobernas.jetpacknavigation.ui.notifications.NotificationsFragment">
 
     <TextView
-        android:id="@+id/messageA"
+        android:id="@+id/notifications_message_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_notifications"
+        android:text="@string/lb_screen_notifications"
         style="@style/textStyle"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@id/actionA"
+        app:layout_constraintBottom_toTopOf="@id/notifications_action_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/actionA"
+        android:id="@+id/notifications_action_button"
         style="@style/buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Go To Fragment A"
+        android:text="@string/lb_navigate_to_a"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/messageA" />
+        app:layout_constraintTop_toBottomOf="@id/notifications_message_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

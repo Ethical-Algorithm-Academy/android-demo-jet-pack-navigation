@@ -1,21 +1,22 @@
-package eu.jobernas.jetpacknavigation.ui.main.notifications
+package eu.jobernas.jetpacknavigation.ui.notifications
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import eu.jobernas.jetpacknavigation.R
 import eu.jobernas.jetpacknavigation.databinding.FragmentNotificationBinding
 import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
-import eu.jobernas.jetpacknavigation.models.Car
-import eu.jobernas.jetpacknavigation.ui.main.b.FragmentBArgs
+import eu.jobernas.jetpacknavigation.models.Vehicle
+import eu.jobernas.jetpacknavigation.ui.main.VehicleDetailsFragmentArgs
 
-class FragmentNotifications : Fragment(), View.OnClickListener {
+class NotificationsFragment : Fragment(), View.OnClickListener {
 
     companion object {
-        fun newInstance() = FragmentNotifications()
+        fun newInstance() = NotificationsFragment()
     }
 
     private var binding: FragmentNotificationBinding? = null
@@ -23,25 +24,24 @@ class FragmentNotifications : Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentNotificationBinding.inflate(inflater, container, false)
-        return binding?.root
-    }
+        binding?.apply {
+            notificationsActionButton.setOnClickListener(this@NotificationsFragment)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        binding?.actionA?.setOnClickListener(this)
+        }
+        return binding?.root
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.actionA -> {
+            R.id.notifications_action_button -> {
                 // New Way
-                val selectedCar = Car("this is a car from Notifications View", 1010)
+                val selectedVehicle = Vehicle("this is a car from Notifications View", Color.BLUE, "test")
 //                val action = FragmentADirections.actionFragmentAToFragmentB(selectedCar)
 //                v.findNavController().navigate(action)
 
                 // Compatible Old Way
-                v.findNavController().navigate(R.id.fragmentA,
-                        FragmentBArgs(selectedCar).toBundle(),
+                findNavController().navigate(R.id.vehicle_details_screen,
+                        VehicleDetailsFragmentArgs(selectedVehicle).toBundle(),
                         NavigationConfig.defaultNavigationBuilder.build())
 
             }

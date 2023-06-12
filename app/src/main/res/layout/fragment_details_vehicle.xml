@@ -3,34 +3,34 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentAContainer"
+    android:id="@+id/vehicle_details_container"
     style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.jobernas.jetpacknavigation.ui.main.a.FragmentA">
+    tools:context="eu.jobernas.jetpacknavigation.ui.main.VehicleDetailsFragment">
 
     <TextView
-        android:id="@+id/messageA"
+        android:id="@+id/vehicle_details_message_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_a"
+        android:text="@string/lb_screen_vehicle"
         style="@style/textStyle"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@id/actionB"
+        app:layout_constraintBottom_toTopOf="@id/vehicle_details_action_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/actionB"
+        android:id="@+id/vehicle_details_action_button"
         style="@style/buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Go To Fragment B"
+        android:text="@string/lb_navigate_to_car_details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/messageA" />
+        app:layout_constraintTop_toBottomOf="@id/vehicle_details_message_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
