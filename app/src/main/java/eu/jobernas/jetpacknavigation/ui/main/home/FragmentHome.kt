@@ -23,12 +23,8 @@ class FragmentHome : Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding?.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         binding?.actionB?.setOnClickListener(this)
+        return binding?.root
     }
 
     override fun onClick(v: View?) {

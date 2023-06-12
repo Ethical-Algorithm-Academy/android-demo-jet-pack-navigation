@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             topLevelDestinationIds = setOf (
                 R.id.fragmentHome,
                 R.id.fragmentNotifications,
-                R.id.fragmentMenu
+                R.id.fragmentMenu,
+                R.id.fragmentSettings
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -42,4 +43,8 @@ class MainActivity : AppCompatActivity() {
      * We have overridden the onSupportNavigateUp() method, this will delegate the system up button call with the NavController.
      */
     override fun onSupportNavigateUp() = findNavController(R.id.main_nav_fragment).navigateUp()
+
+//    override fun onBackPressed() {
+//        findNavController(R.id.main_nav_fragment).popBackStack()
+//    }
 }

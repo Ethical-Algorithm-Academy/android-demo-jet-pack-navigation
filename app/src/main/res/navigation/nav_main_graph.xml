@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main_graph"
     app:startDestination="@id/fragmentHome">
+
     <!-- Main Screens -->
     <fragment
         android:id="@+id/fragmentHome"
@@ -24,6 +25,11 @@
             android:id="@+id/action_fragmentNotifications_to_fragmentMenu"
             app:destination="@id/fragmentMenu"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSettings"
+        android:name="eu.jobernas.jetpacknavigation.ui.main.SettingsFragment"
+        android:label="@string/lb_settings"/>
 
     <fragment
         android:id="@+id/fragmentMenu"
