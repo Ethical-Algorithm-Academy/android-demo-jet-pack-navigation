@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_fragmentHome_to_fragmentNotifications"
             app:destination="@id/notifications_screen" />
+
+        <action
+            android:id="@+id/action_home_screen_to_moto_details_screen"
+            app:destination="@id/moto_details_screen" />
     </fragment>
 
     <fragment
@@ -21,9 +25,22 @@
         android:name="eu.jobernas.jetpacknavigation.ui.notifications.NotificationsFragment"
         android:label="@string/lb_screen_notifications"
         tools:layout="@layout/fragment_notification">
+
+        <!-- Navigate using Action  -->
         <action
-            android:id="@+id/action_fragmentNotifications_to_fragmentMenu"
-            app:destination="@id/menu_screen"/>
+            android:id="@+id/action_notifications_screen_to_vehicle_details_screen"
+            app:destination="@id/vehicle_details_screen" />
+
+        <!-- App Link -->
+        <deepLink
+            android:id="@+id/deep_link_notifications"
+            app:uri="demo-jetpack://notifications" />
+
+        <!-- Universal Link -->
+        <deepLink
+            android:id="@+id/universal_deep_link_notifications"
+            app:uri="https://www.google.pt" />
+
     </fragment>
 
     <fragment
@@ -41,41 +58,61 @@
     <!-- Other Modules Nav Graphs -->
     <fragment
         android:id="@+id/vehicle_details_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.main.MotoDetailsFragment"
+        android:name="eu.jobernas.jetpacknavigation.ui.main.VehicleDetailsFragment"
         android:label="@string/lb_screen_vehicle"
         tools:layout="@layout/fragment_details_vehicle">
-        <!--  TODO: Deeplink -->
-        <!--  Note: Example of xml Segue -->
+        <!-- TODO: Deeplink -->
+        <!-- Note: Example of xml Segue -->
+
         <argument
             android:name="selectedCar"
             app:argType=".models.Vehicle"
             app:nullable="true" />
+
+        <!-- Action -->
         <action
             android:id="@+id/action_fragmentA_to_fragmentB"
             app:destination="@id/moto_details_screen">
+
             <argument
                 android:name="selectedCar"
                 app:argType=".models.Vehicle"
                 app:nullable="true" />
         </action>
     </fragment>
+
+    <!-- MOTO: -->
     <fragment
         android:id="@+id/moto_details_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.main.VehicleDetailsFragment"
+        android:name="eu.jobernas.jetpacknavigation.ui.main.MotoDetailsFragment"
         android:label="@string/lb_screen_moto_details"
         tools:layout="@layout/fragment_details_moto">
         <argument
-            android:name="selectedCar"
-            app:argType=".models.Vehicle"
+            android:name="selectedMoto"
+            android:defaultValue="@null"
+            app:argType=".models.Moto"
             app:nullable="true" />
+
+        <argument
+            android:name="selectedMotoID"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <!-- App Link -->
+        <deepLink
+            android:id="@+id/deep_link_moto_details"
+            app:uri="demo-jetpack://moto_details/{selectedMotoID}" />
+
+        <!-- Universal Link -->
+        <deepLink
+            android:id="@+id/universal_deep_link_moto_details"
+            app:uri="https://www.google.pt/{selectedMotoID}" />
+
+        <!-- Action -->
         <action
             android:id="@+id/action_fragmentB_to_fragmentC"
-            app:destination="@id/car_details_screen">
-            <argument
-                android:name="selectedCar"
-                app:argType=".models.Vehicle"
-                app:nullable="true" />
-        </action>
+            app:destination="@id/car_details_screen"/>
     </fragment>
     <fragment
         android:id="@+id/car_details_screen"
@@ -98,6 +135,10 @@
     <!--        />-->
 
     <!--  TODO: Sheets -->
+    <dialog
+        android:id="@+id/popup"
+        android:name="eu.jobernas.jetpacknavigation.ui.PopupDialogFragment" >
+    </dialog>
 
     <!--  TODO: Permissions -->
 

@@ -36,14 +36,10 @@ class NotificationsFragment : Fragment(), View.OnClickListener {
             R.id.notifications_action_button -> {
                 // New Way
                 val selectedVehicle = Vehicle("this is a car from Notifications View", Color.BLUE, "test")
-//                val action = FragmentADirections.actionFragmentAToFragmentB(selectedCar)
-//                v.findNavController().navigate(action)
-
                 // Compatible Old Way
-                findNavController().navigate(R.id.vehicle_details_screen,
-                        VehicleDetailsFragmentArgs(selectedVehicle).toBundle(),
-                        NavigationConfig.defaultNavigationBuilder.build())
-
+//                val directions = NotificationsFragmentDirections.actionNotificationsScreenToVehicleDetailsScreen(selectedVehicle)
+//                findNavController().navigate(directions)
+                findNavController().navigate(R.id.popup)
             }
         }
     }

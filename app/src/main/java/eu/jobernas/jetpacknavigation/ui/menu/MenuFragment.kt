@@ -35,7 +35,7 @@ class MenuFragment: Fragment(),
         when (v?.id) {
             R.id.menu_action_button -> {
                 // This is an Example of Calling a Fragment by ID instead of Action;
-                val selectedVehicle = Vehicle("DT", Color.RED, "Yamaha")
+                val selectedVehicle = Vehicle("Auris", Color.RED, "Toyota")
                 val bundle = CarDetailsFragment.getBundle(selectedVehicle)
                 findNavController()
                     .navigate(R.id.car_details_screen, bundle, NavigationConfig.defaultNavigationBuilder.build())

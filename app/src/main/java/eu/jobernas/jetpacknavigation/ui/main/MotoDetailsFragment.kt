@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import eu.jobernas.jetpacknavigation.R
 import eu.jobernas.jetpacknavigation.databinding.FragmentDetailsMotoBinding
 import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
-import eu.jobernas.jetpacknavigation.models.Vehicle
+import eu.jobernas.jetpacknavigation.models.Moto
 
 class MotoDetailsFragment: Fragment(),
     View.OnClickListener {
@@ -21,16 +21,25 @@ class MotoDetailsFragment: Fragment(),
     }
 
     val args: MotoDetailsFragmentArgs by navArgs()
-    var selectedVehicle: Vehicle? = null
+    var selectedMoto: Moto? = null
+    var selectedMotoID: Int? = null
     private var binding: FragmentDetailsMotoBinding? = null
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        selectedVehicle = args.selectedCar
+        selectedMoto = args.selectedMoto
+        selectedMotoID = args.selectedMotoID?.toIntOrNull()
         binding = FragmentDetailsMotoBinding.inflate(inflater, container, false)
         binding?.apply {
-            motoDetailsModelTextView.text = "${selectedVehicle?.name} + Number:${selectedVehicle?.color}"
+            if (selectedMoto != null) {
+                motoDetailsModelTextView.text = "Model: ${selectedMoto?.name}, " +
+                    "Color:${selectedMoto?.color}, " +
+                    "Brand: ${selectedMoto?.brand}, " +
+                    "is 4 Wheels: ${selectedMoto?.isFourWheels}"
+            }
+            if (selectedMotoID != null) {
+                motoDetailsModelTextView.text = "Moto ID: ${selectedMotoID}"
+            }
             motoDetailsActionButton.setOnClickListener(this@MotoDetailsFragment)
         }
         return binding?.root
@@ -40,7 +49,7 @@ class MotoDetailsFragment: Fragment(),
         when (v?.id) {
             R.id.moto_details_action_button -> {
                 // New Way
-                val selectedVehicle = Vehicle("Auris", Color.RED, "Toyota")
+                val selectedMoto = Moto("22","Auris", Color.RED, "Toyota", false)
 
 //                val action = FragmentADirections.actionFragmentAToFragmentB(selectedCar)
 //                v.findNavController().navigate(action, navOptions)
@@ -52,7 +61,7 @@ class MotoDetailsFragment: Fragment(),
                 // OR
                 findNavController().navigate(
                         R.id.moto_details_screen,
-                        MotoDetailsFragmentArgs(selectedVehicle).toBundle(),
+                        MotoDetailsFragmentArgs(selectedMoto, null).toBundle(),
                         NavigationConfig.defaultNavigationBuilder.build())
             }
         }

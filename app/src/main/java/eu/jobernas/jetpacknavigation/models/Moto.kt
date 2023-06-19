@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Moto(
+    val id: String,
     override val name: String,
     @ColorInt override val color: Int,
     override val brand: String,
