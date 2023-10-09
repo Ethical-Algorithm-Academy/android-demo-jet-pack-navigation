@@ -4,35 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import eu.jobernas.jetpacknavigation.databinding.FragmentPopupDialogListDialogBinding
+import eu.jobernas.jetpacknavigation.databinding.FragmentDialogDetailsBinding
 
-// TODO: Customize parameter argument names
-
-/**
- *
- * A fragment that shows a list of items as a modal bottom sheet.
- *
- * You can show this modal bottom sheet from your activity like this:
- * <pre>
- *    PopupDialogFragment.newInstance(30).show(supportFragmentManager, "dialog")
- * </pre>
- */
 class PopupDialogFragment : BottomSheetDialogFragment() {
 
-    private var _binding: FragmentPopupDialogListDialogBinding? = null
+    private var _binding: FragmentDialogDetailsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentPopupDialogListDialogBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?): View {
+        _binding = FragmentDialogDetailsBinding.inflate(inflater, container, false)
+        _binding?.apply {
+            dialogCloseButton.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,12 +69,11 @@ class PopupDialogFragment : BottomSheetDialogFragment() {
         const val ARG_ITEM_COUNT = "item_count"
 
         // TODO: Customize parameters
-        fun newInstance(itemCount: Int): PopupDialogFragment =
-            PopupDialogFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_ITEM_COUNT, itemCount)
-                }
+        fun newInstance(itemCount: Int): PopupDialogFragment = PopupDialogFragment().apply {
+            arguments = Bundle().apply {
+                putInt(ARG_ITEM_COUNT, itemCount)
             }
+        }
 
     }
 

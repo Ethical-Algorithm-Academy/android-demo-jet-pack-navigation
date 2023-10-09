@@ -2,27 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/home_screen"
+        android:id="@+id/id_nav_screen"
         android:title="@string/lb_screen_id_nav"
         android:icon="@drawable/ic_id"
         android:orderInCategory="1"
         app:showAsAction="always" />
     <item
-        android:id="@+id/notifications_screen"
-        android:title="@string/lb_screen_notifications"
-        android:icon="@drawable/ic_notifications"
+        android:id="@+id/dialog_nav_screen"
+        android:title="@string/lb_screen_dialog_nav"
+        android:icon="@drawable/ic_bubble"
         android:orderInCategory="2"
         app:showAsAction="always" />
     <item
-        android:id="@+id/deeplink_screen"
+        android:id="@+id/deeplink_nav_screen"
         android:title="@string/lb_screen_deeplink_nav"
         android:icon="@drawable/ic_link"
         android:orderInCategory="3"
         app:showAsAction="always" />
     <item
-        android:id="@+id/settings_screen"
-        android:title="@string/lb_screen_settings"
-        android:icon="@drawable/ic_settings_24"
+        android:id="@+id/action_nav_screen"
+        android:title="@string/lb_screen_action_nav"
+        android:icon="@drawable/ic_action"
         android:orderInCategory="3"
         app:showAsAction="always" />
 </menu>

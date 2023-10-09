@@ -1,11 +1,10 @@
-package eu.jobernas.jetpacknavigation.ui.onboarding
+package eu.jobernas.jetpacknavigation.ui.activity
 
 import android.os.Bundle
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class OnboardingViewModel: ViewModel() {
+class SecondaryViewModel: ViewModel() {
 
     companion object {
         const val KEY_PARAM = "PARAM_KEY"

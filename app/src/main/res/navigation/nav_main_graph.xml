@@ -3,57 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main_graph"
-    app:startDestination="@id/home_screen">
+    app:startDestination="@id/id_nav_screen">
 
     <!-- Main Screens TOP LEVEL -->
     <fragment
-        android:id="@+id/home_screen"
+        android:id="@+id/id_nav_screen"
         android:name="eu.jobernas.jetpacknavigation.ui.id.IdNavigationFragment"
         android:label="@string/lb_screen_id_nav"
-        tools:layout="@layout/fragment_id" >
-        <action
-            android:id="@+id/action_fragmentHome_to_fragmentNotifications"
-            app:destination="@id/notifications_screen" />
+        tools:layout="@layout/fragment_navigation_id"/>
 
+    <fragment
+        android:id="@+id/dialog_nav_screen"
+        android:name="eu.jobernas.jetpacknavigation.ui.dialog.DialogNavigationFragment"
+        android:label="@string/lb_screen_dialog_nav"
+        tools:layout="@layout/fragment_navigation_dialog"/>
+
+    <fragment
+        android:id="@+id/action_nav_screen"
+        android:name="eu.jobernas.jetpacknavigation.ui.action.ActionNavigationFragment"
+        android:label="@string/lb_screen_action_nav"
+        tools:layout="@layout/fragment_navigation_action" >
         <action
-            android:id="@+id/action_home_screen_to_moto_details_screen"
-            app:destination="@id/moto_details_screen" />
+            android:id="@+id/action_action_nav_screen_to_car_details_screen"
+            app:destination="@id/car_details_screen">
+            <argument
+                android:name="selectedCar"
+                app:argType=".models.Car"
+                app:nullable="true" />
+        </action>
     </fragment>
 
     <fragment
-        android:id="@+id/notifications_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.notifications.NotificationsFragment"
-        android:label="@string/lb_screen_notifications"
-        tools:layout="@layout/fragment_notification">
-
-        <!-- Navigate using Action  -->
-        <action
-            android:id="@+id/action_notifications_screen_to_vehicle_details_screen"
-            app:destination="@id/vehicle_details_screen" />
-
-        <!-- App Link -->
-        <deepLink
-            android:id="@+id/deep_link_notifications"
-            app:uri="demo-jetpack://notifications" />
-
-        <!-- Universal Link -->
-        <deepLink
-            android:id="@+id/universal_deep_link_notifications"
-            app:uri="https://www.google.pt" />
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/settings_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.settings.SettingsFragment"
-        android:label="@string/lb_screen_settings"
-        tools:layout="@layout/fragment_settings" />
-
-    <fragment
-        android:id="@+id/deeplink_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.deeplink.DeeplinkFragment"
+        android:id="@+id/deeplink_nav_screen"
+        android:name="eu.jobernas.jetpacknavigation.ui.deeplink.DeeplinkNavigationFragment"
         android:label="@string/lb_screen_deeplink_nav"
-        tools:layout="@layout/fragment_deeplink" />
+        tools:layout="@layout/fragment_navigation_deeplink" />
 
     <!-- Other Modules Nav Graphs -->
     <fragment
@@ -65,20 +49,9 @@
         <!-- Note: Example of xml Segue -->
 
         <argument
-            android:name="selectedCar"
+            android:name="selectedVehicle"
             app:argType=".models.Vehicle"
             app:nullable="true" />
-
-        <!-- Action -->
-        <action
-            android:id="@+id/action_fragmentA_to_fragmentB"
-            app:destination="@id/moto_details_screen">
-
-            <argument
-                android:name="selectedCar"
-                app:argType=".models.Vehicle"
-                app:nullable="true" />
-        </action>
     </fragment>
 
     <!-- MOTO: -->
@@ -108,12 +81,8 @@
         <deepLink
             android:id="@+id/universal_deep_link_moto_details"
             app:uri="https://www.ealgorithm.net/moto/{selectedMotoID}" />
-
-        <!-- Action -->
-        <action
-            android:id="@+id/action_fragmentB_to_fragmentC"
-            app:destination="@id/car_details_screen"/>
     </fragment>
+
     <fragment
         android:id="@+id/car_details_screen"
         android:name="eu.jobernas.jetpacknavigation.ui.details.CarDetailsFragment"
@@ -121,25 +90,19 @@
         tools:layout="@layout/fragment_details_car">
         <argument
             android:name="selectedCar"
-            app:argType=".models.Vehicle"
+            app:argType=".models.Car"
             app:nullable="true" />
     </fragment>
 
     <!-- Include Graph looks like I can only Access to Entry point with help of segue-->
 
-    <!-- TODO: Check with Dialogs -->
-    <!--    <dialog-->
-    <!--        android:id="@+id/fragmentADialog"-->
-    <!--        android:name="com.beatstars.testingjetpacknavigation.ui.main.FragmentA"-->
-    <!--        -->
-    <!--        />-->
-
-    <!--  TODO: Sheets -->
     <dialog
         android:id="@+id/popup"
-        android:name="eu.jobernas.jetpacknavigation.ui.PopupDialogFragment" >
+        android:name="eu.jobernas.jetpacknavigation.ui.PopupDialogFragment">
+        <argument
+            android:name="selectedVehicle"
+            app:argType=".models.Vehicle"
+            app:nullable="true" />
     </dialog>
-
-    <!--  TODO: Permissions -->
 
 </navigation>

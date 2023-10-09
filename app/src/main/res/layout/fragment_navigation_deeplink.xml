@@ -7,7 +7,7 @@
     style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.jobernas.jetpacknavigation.ui.deeplink.DeeplinkFragment">
+    tools:context="eu.jobernas.jetpacknavigation.ui.deeplink.DeeplinkNavigationFragment">
 
     <TextView
         android:id="@+id/menu_message_text_view"

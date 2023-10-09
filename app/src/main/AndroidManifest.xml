@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name="eu.jobernas.jetpacknavigation.ui.onboarding.OnboardingActivity"
+            android:name="eu.jobernas.jetpacknavigation.ui.activity.SecondaryActivity"
             android:exported="false" />
 
     </application>

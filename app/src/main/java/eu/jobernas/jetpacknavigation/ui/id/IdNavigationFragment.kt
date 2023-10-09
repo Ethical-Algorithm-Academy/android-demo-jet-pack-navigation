@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import eu.jobernas.jetpacknavigation.R
-import eu.jobernas.jetpacknavigation.databinding.FragmentIdBinding
+import eu.jobernas.jetpacknavigation.databinding.FragmentNavigationIdBinding
 import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
 import eu.jobernas.jetpacknavigation.models.Moto
 import eu.jobernas.jetpacknavigation.ui.details.MotoDetailsFragmentArgs
@@ -19,12 +19,12 @@ class IdNavigationFragment : Fragment(), View.OnClickListener {
         fun newInstance() = IdNavigationFragment()
     }
 
-    private var binding: FragmentIdBinding? = null
+    private var binding: FragmentNavigationIdBinding? = null
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        binding = FragmentIdBinding.inflate(inflater, container, false)
+        binding = FragmentNavigationIdBinding.inflate(inflater, container, false)
         binding?.apply {
             idActionButton.setOnClickListener(this@IdNavigationFragment)
         }
@@ -37,10 +37,9 @@ class IdNavigationFragment : Fragment(), View.OnClickListener {
                 // Calling Fragment By ID with Args Auto Generated
                 val selectedMoto = Moto("32", "DT", Color.WHITE, "Yamaha", false)
                 val bundle = MotoDetailsFragmentArgs(selectedMoto).toBundle()
-                findNavController()
-                    .navigate(R.id.moto_details_screen,
-                              bundle,
-                              NavigationConfig.defaultNavigationBuilder.build())
+                findNavController().navigate(R.id.moto_details_screen,
+                                             bundle,
+                                             NavigationConfig.defaultNavigationBuilder.build())
             }
         }
     }

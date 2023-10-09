@@ -11,8 +11,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import eu.jobernas.jetpacknavigation.databinding.ActivityMainBinding
-import eu.jobernas.jetpacknavigation.ui.onboarding.OnboardingActivity
-import eu.jobernas.jetpacknavigation.ui.onboarding.OnboardingViewModel.Companion.KEY_PARAM
+import eu.jobernas.jetpacknavigation.ui.activity.SecondaryActivity
+import eu.jobernas.jetpacknavigation.ui.activity.SecondaryViewModel.Companion.KEY_PARAM
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,28 +26,25 @@ class MainActivity : AppCompatActivity() {
         sharedMainViewModel = ViewModelProvider(this)[SharedMainViewModel::class.java]
         sharedMainViewModel.load()
         val navHostFragment =
-                supportFragmentManager.findFragmentById(R.id.main_nav_fragment) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.main_nav_fragment) as NavHostFragment
         val navController: NavController = navHostFragment.navController
 
         // Setup Bottom Navigation
         binding.apply {
             bottomNavigation.setupWithNavController(navController)
             mainActionFloatingButton.setOnClickListener {
-                val intent = Intent(this@MainActivity, OnboardingActivity::class.java)
-                intent.putExtra(KEY_PARAM, "Test")
+                val intent = Intent(this@MainActivity, SecondaryActivity::class.java)
+                intent.putExtra(KEY_PARAM, "This is a String Value passed through a Bundle in an Intent!")
                 startActivity(intent)
             }
         }
 
         // Setup Action Bar Navigation
-        val appBarConfiguration = AppBarConfiguration(
-            topLevelDestinationIds = setOf (
-                R.id.home_screen,
-                R.id.notifications_screen,
-                R.id.deeplink_screen,
-                R.id.settings_screen
-            )
-        )
+        val appBarConfiguration =
+            AppBarConfiguration(topLevelDestinationIds = setOf(R.id.id_nav_screen,
+                                                               R.id.dialog_nav_screen,
+                                                               R.id.deeplink_nav_screen,
+                                                               R.id.action_nav_screen))
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
@@ -55,8 +52,7 @@ class MainActivity : AppCompatActivity() {
      * Note:
      * We have overridden the onSupportNavigateUp() method, this will delegate the system up button call with the NavController.
      */
-    override fun onSupportNavigateUp() =
-        findNavController(R.id.main_nav_fragment).navigateUp()
+    override fun onSupportNavigateUp() = findNavController(R.id.main_nav_fragment).navigateUp()
 
 //    override fun onBackPressed() {
 //        findNavController(R.id.main_nav_fragment).popBackStack()

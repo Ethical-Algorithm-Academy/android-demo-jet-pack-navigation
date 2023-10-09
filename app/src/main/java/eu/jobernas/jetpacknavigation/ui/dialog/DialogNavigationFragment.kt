@@ -1,4 +1,4 @@
-package eu.jobernas.jetpacknavigation.ui.notifications
+package eu.jobernas.jetpacknavigation.ui.dialog
 
 import android.graphics.Color
 import android.os.Bundle
@@ -8,22 +8,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import eu.jobernas.jetpacknavigation.R
-import eu.jobernas.jetpacknavigation.databinding.FragmentNotificationBinding
+import eu.jobernas.jetpacknavigation.databinding.FragmentNavigationDialogBinding
 import eu.jobernas.jetpacknavigation.models.Vehicle
 
-class NotificationsFragment : Fragment(), View.OnClickListener {
+class DialogNavigationFragment : Fragment(), View.OnClickListener {
 
     companion object {
-        fun newInstance() = NotificationsFragment()
+        fun newInstance() = DialogNavigationFragment()
     }
 
-    private var binding: FragmentNotificationBinding? = null
+    private var binding: FragmentNavigationDialogBinding? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        binding = FragmentNotificationBinding.inflate(inflater, container, false)
+        binding = FragmentNavigationDialogBinding.inflate(inflater, container, false)
         binding?.apply {
-            notificationsActionButton.setOnClickListener(this@NotificationsFragment)
+            notificationsActionButton.setOnClickListener(this@DialogNavigationFragment)
 
         }
         return binding?.root
@@ -33,7 +34,8 @@ class NotificationsFragment : Fragment(), View.OnClickListener {
         when (v?.id) {
             R.id.notifications_action_button -> {
                 // New Way
-                val selectedVehicle = Vehicle("this is a car from Notifications View", Color.BLUE, "test")
+//                val selectedVehicle =
+//                    Vehicle("this is a car from Notifications View", Color.BLUE, "test")
                 // Compatible Old Way
 //                val directions = NotificationsFragmentDirections.actionNotificationsScreenToVehicleDetailsScreen(selectedVehicle)
 //                findNavController().navigate(directions)

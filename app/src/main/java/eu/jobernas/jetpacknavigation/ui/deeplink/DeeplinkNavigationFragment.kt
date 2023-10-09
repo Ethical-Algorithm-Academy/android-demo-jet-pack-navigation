@@ -8,23 +8,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import eu.jobernas.jetpacknavigation.R
-import eu.jobernas.jetpacknavigation.databinding.FragmentDeeplinkBinding
+import eu.jobernas.jetpacknavigation.databinding.FragmentNavigationDeeplinkBinding
 import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
 
-class DeeplinkFragment: Fragment(),
+class DeeplinkNavigationFragment: Fragment(),
     View.OnClickListener {
 
     companion object {
-        fun newInstance() = DeeplinkFragment()
+        fun newInstance() = DeeplinkNavigationFragment()
     }
 
-    private var binding: FragmentDeeplinkBinding? = null
+    private var binding: FragmentNavigationDeeplinkBinding? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        binding = FragmentDeeplinkBinding.inflate(inflater, container, false)
+        binding = FragmentNavigationDeeplinkBinding.inflate(inflater, container, false)
         binding?.apply {
-            deeplinkActionButton.setOnClickListener(this@DeeplinkFragment)
+            deeplinkActionButton.setOnClickListener(this@DeeplinkNavigationFragment)
         }
         return binding?.root
     }
