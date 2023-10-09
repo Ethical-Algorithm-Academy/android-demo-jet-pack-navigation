@@ -1,4 +1,4 @@
-package eu.jobernas.jetpacknavigation.ui.main
+package eu.jobernas.jetpacknavigation.ui.details
 
 import android.os.Bundle
 import android.view.LayoutInflater

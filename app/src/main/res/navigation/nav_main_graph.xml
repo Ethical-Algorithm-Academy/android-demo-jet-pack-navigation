@@ -50,15 +50,15 @@
         tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/menu_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.menu.MenuFragment"
-        android:label="@string/lb_screen_menu"
-        tools:layout="@layout/fragment_menu" />
+        android:id="@+id/deeplink_screen"
+        android:name="eu.jobernas.jetpacknavigation.ui.deeplink.DeeplinkFragment"
+        android:label="@string/lb_screen_deeplink_nav"
+        tools:layout="@layout/fragment_deeplink" />
 
     <!-- Other Modules Nav Graphs -->
     <fragment
         android:id="@+id/vehicle_details_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.main.VehicleDetailsFragment"
+        android:name="eu.jobernas.jetpacknavigation.ui.details.VehicleDetailsFragment"
         android:label="@string/lb_screen_vehicle"
         tools:layout="@layout/fragment_details_vehicle">
         <!-- TODO: Deeplink -->
@@ -84,7 +84,7 @@
     <!-- MOTO: -->
     <fragment
         android:id="@+id/moto_details_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.main.MotoDetailsFragment"
+        android:name="eu.jobernas.jetpacknavigation.ui.details.MotoDetailsFragment"
         android:label="@string/lb_screen_moto_details"
         tools:layout="@layout/fragment_details_moto">
         <argument
@@ -107,7 +107,7 @@
         <!-- Universal Link -->
         <deepLink
             android:id="@+id/universal_deep_link_moto_details"
-            app:uri="https://www.google.pt/{selectedMotoID}" />
+            app:uri="https://www.ealgorithm.net/moto/{selectedMotoID}" />
 
         <!-- Action -->
         <action
@@ -116,7 +116,7 @@
     </fragment>
     <fragment
         android:id="@+id/car_details_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.main.CarDetailsFragment"
+        android:name="eu.jobernas.jetpacknavigation.ui.details.CarDetailsFragment"
         android:label="@string/lb_screen_car_details"
         tools:layout="@layout/fragment_details_car">
         <argument

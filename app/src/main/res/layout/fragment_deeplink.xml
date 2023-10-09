@@ -3,31 +3,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/menu_container"
+    android:id="@+id/deeplink_container"
     style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.jobernas.jetpacknavigation.ui.menu.MenuFragment">
+    tools:context="eu.jobernas.jetpacknavigation.ui.deeplink.DeeplinkFragment">
 
     <TextView
         android:id="@+id/menu_message_text_view"
         style="@style/textStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/lb_screen_menu"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@id/menu_action_button"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/lb_deeplink_message"
+        app:layout_constraintBottom_toTopOf="@id/deeplink_action_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/menu_action_button"
+        android:id="@+id/deeplink_action_button"
         style="@style/buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/lb_navigate_to_car_details"
+        android:text="@string/lb_navigate_to_moto_details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

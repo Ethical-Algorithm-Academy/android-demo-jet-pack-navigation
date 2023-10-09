@@ -20,14 +20,6 @@ buildscript {
         materialVersion = '1.9.0'
 
     }
-//    dependencies {
-//        classpath "com.android.tools.build:gradle:$gradlePluginVersion"
-//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradleVersion"
-//        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$androidNavVersion"
-//
-//        // NOTE: Do not place your application dependencies here; they belong
-//        // in the individual module build.gradle files
-//    }
 }
 
 plugins {
@@ -35,22 +27,13 @@ plugins {
     id 'org.jetbrains.kotlin.android' version "$kotlinPluginVersion" apply false
     id 'androidx.navigation.safeargs' version "$androidNavVersion" apply false
 
-//    id 'org.jetbrains.dokka' version "$dokkaPluginVersion" apply false
-//    id 'com.google.dagger.hilt.android' version "$hiltPluginVersion" apply false
-//    id 'org.sonarqube' version "$sonarQubePluginVersion" apply true
+    // Some other Plugins
+    //    id 'org.jetbrains.dokka' version "$dokkaPluginVersion" apply false // This is used to generate documentation
+    //    id 'com.google.dagger.hilt.android' version "$hiltPluginVersion" apply false // This is used for dependency injection
+    //    id 'org.sonarqube' version "$sonarQubePluginVersion" apply true // This is used for code quality
 
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-//tasks.dokkaHtml.configure {
-//    outputDirectory.set(file("$rootDir/docsHTML"))
-//    dokkaSourceSets {
-//        named("main") {
-//            includeNonPublic.set(true)
-//            skipDeprecated.set(true)
-//        }
-//    }
-//}

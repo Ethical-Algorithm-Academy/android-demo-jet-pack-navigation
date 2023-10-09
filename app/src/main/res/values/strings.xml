@@ -3,7 +3,7 @@
 
     <!-- Screens -->
     <string name="lb_screen_notifications">Notifications</string>
-    <string name="lb_screen_menu">Menu</string>
+    <string name="lb_screen_deeplink_nav">Deeplink Nav</string>
     <string name="lb_screen_settings">Settings</string>
     <string name="lb_screen_home">Home</string>
     <string name="lb_screen_vehicle">Vehicle Details</string>
@@ -17,6 +17,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Deeplink Screen -->
+    <string name="lb_deeplink_message">This Fragment is going to call Moto Details using Deeplink, and pass the Moto ID 32.\n\nAfter you can call an API and pass the ID to retrieve data for the Moto ID 32.</string>
+
 
     <!-- Placeholders -->
     <string name="ph_name">Lorem Ipsum</string>

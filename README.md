@@ -10,6 +10,11 @@ Support for ActionBar, BottomNavigationView and More.
 - Bottom Sheet Dialogs;
 
 ## Types of navigation
+- Using Directions;
 - Using Actions;
 - Using IDs and Bundles;
-- Deeplinking;
+- Deeplink;
+
+## Gradle Configuration
+
+We are using this project al

@@ -7,7 +7,7 @@
     style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.jobernas.jetpacknavigation.ui.main.VehicleDetailsFragment">
+    tools:context="eu.jobernas.jetpacknavigation.ui.details.VehicleDetailsFragment">
 
     <TextView
         android:id="@+id/vehicle_details_message_text_view"

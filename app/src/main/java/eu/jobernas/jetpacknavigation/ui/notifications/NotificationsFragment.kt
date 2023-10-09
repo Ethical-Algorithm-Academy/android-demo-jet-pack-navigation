@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import eu.jobernas.jetpacknavigation.R
 import eu.jobernas.jetpacknavigation.databinding.FragmentNotificationBinding
-import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
 import eu.jobernas.jetpacknavigation.models.Vehicle
-import eu.jobernas.jetpacknavigation.ui.main.VehicleDetailsFragmentArgs
 
 class NotificationsFragment : Fragment(), View.OnClickListener {
 

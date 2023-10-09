@@ -1,4 +1,4 @@
-package eu.jobernas.jetpacknavigation.ui.main
+package eu.jobernas.jetpacknavigation.ui.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,20 +12,20 @@ class CarDetailsFragment : Fragment() {
 
     companion object {
         private const val KEY_SELECT_CAR = "KEY_SELECT_CAR"
-        fun getBundle(selectVehicle: Vehicle): Bundle =
-            Bundle().apply {
-                putParcelable(KEY_SELECT_CAR, selectVehicle)
-            }
+        fun getBundle(selectVehicle: Vehicle): Bundle = Bundle().apply {
+            putParcelable(KEY_SELECT_CAR, selectVehicle)
+        }
     }
 
     private var binding: FragmentDetailsCarBinding? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val selectVehicle = arguments?.getParcelable<Vehicle>(KEY_SELECT_CAR)
         binding = FragmentDetailsCarBinding.inflate(inflater, container, false)
         binding?.apply {
-            if (selectVehicle != null){
+            if (selectVehicle != null) {
                 carDetailsModelTextView.text = "${selectVehicle.name}, ${selectVehicle.brand}"
             }
         }

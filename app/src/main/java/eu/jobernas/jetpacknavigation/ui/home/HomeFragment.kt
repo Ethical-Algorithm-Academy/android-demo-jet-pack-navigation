@@ -1,7 +1,6 @@
 package eu.jobernas.jetpacknavigation.ui.home
 
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +11,9 @@ import eu.jobernas.jetpacknavigation.R
 import eu.jobernas.jetpacknavigation.databinding.FragmentHomeBinding
 import eu.jobernas.jetpacknavigation.helpers.NavigationConfig
 import eu.jobernas.jetpacknavigation.models.Moto
-import eu.jobernas.jetpacknavigation.models.Vehicle
-import eu.jobernas.jetpacknavigation.ui.main.MotoDetailsFragmentArgs
+import eu.jobernas.jetpacknavigation.ui.details.MotoDetailsFragmentArgs
 
-class HomeFragment : Fragment(),
-    View.OnClickListener {
+class HomeFragment : Fragment(), View.OnClickListener {
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -24,7 +21,8 @@ class HomeFragment : Fragment(),
 
     private var binding: FragmentHomeBinding? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding?.apply {
@@ -38,12 +36,11 @@ class HomeFragment : Fragment(),
             R.id.home_action_button -> {
                 // Calling Fragment By ID with Args Auto Generated
                 val selectedMoto = Moto("32", "DT", Color.WHITE, "Yamaha", false)
-//                val bundle = MotoDetailsFragmentArgs(selectedMoto).toBundle()
+                val bundle = MotoDetailsFragmentArgs(selectedMoto).toBundle()
                 findNavController()
-                    .navigate(Uri.parse("https://www.google.pt/32"))
-//                    .navigate(R.id.moto_details_screen,
-//                        bundle, NavigationConfig.defaultNavigationBuilder.build())
-
+                    .navigate(R.id.moto_details_screen,
+                              bundle,
+                              NavigationConfig.defaultNavigationBuilder.build())
             }
         }
     }
