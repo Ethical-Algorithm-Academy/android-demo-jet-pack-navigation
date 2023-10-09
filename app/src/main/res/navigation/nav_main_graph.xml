@@ -8,9 +8,9 @@
     <!-- Main Screens TOP LEVEL -->
     <fragment
         android:id="@+id/home_screen"
-        android:name="eu.jobernas.jetpacknavigation.ui.home.HomeFragment"
-        android:label="@string/lb_screen_home"
-        tools:layout="@layout/fragment_home" >
+        android:name="eu.jobernas.jetpacknavigation.ui.id.IdNavigationFragment"
+        android:label="@string/lb_screen_id_nav"
+        tools:layout="@layout/fragment_id" >
         <action
             android:id="@+id/action_fragmentHome_to_fragmentNotifications"
             app:destination="@id/notifications_screen" />
